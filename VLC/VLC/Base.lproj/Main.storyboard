@@ -18,21 +18,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iFu-Te-P4P">
+                                <rect key="frame" x="0.0" y="340" width="414" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jbh-cM-Lcf">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EhM-0G-CLq">
+                                <rect key="frame" x="0.0" y="572" width="414" height="290"/>
+                                <subviews>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mWg-Ea-oxW">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                        <items>
+                                            <barButtonItem enabled="NO" title="URL" id="T2k-8S-xMm"/>
+                                            <barButtonItem systemItem="flexibleSpace" id="Nw8-G1-WHh"/>
+                                            <barButtonItem enabled="NO" title="network-caching" id="aMC-Iq-Khx"/>
+                                            <barButtonItem systemItem="flexibleSpace" id="5d7-SZ-JJb"/>
+                                            <barButtonItem systemItem="done" id="IZK-mI-1Ue">
+                                                <connections>
+                                                    <action selector="done:" destination="BYZ-38-t0r" id="UAv-r1-8AU"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                    </toolbar>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sca-VA-MRY">
+                                        <rect key="frame" x="0.0" y="44" width="414" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AOJ-M0-0Vb">
+                                        <rect key="frame" x="0.0" y="74" width="414" height="216"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </pickerView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jbh-cM-Lcf" secondAttribute="trailing" id="8o7-by-6wN"/>
+                            <constraint firstItem="EhM-0G-CLq" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="PXh-tz-snf"/>
                             <constraint firstItem="jbh-cM-Lcf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="T4y-nV-K1s"/>
+                            <constraint firstItem="EhM-0G-CLq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VD3-Of-yKi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EhM-0G-CLq" secondAttribute="bottom" id="kSZ-Z5-5Ac"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jbh-cM-Lcf" secondAttribute="bottom" id="qpl-nf-Dym"/>
                             <constraint firstItem="jbh-cM-Lcf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="xBf-kR-1fh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="VLC" id="T3Z-Tm-9ph"/>
+                    <navigationItem key="navigationItem" title="VLC" id="T3Z-Tm-9ph">
+                        <barButtonItem key="leftBarButtonItem" title="Setting" id="AWV-yu-fXa">
+                            <connections>
+                                <action selector="setting:" destination="BYZ-38-t0r" id="GGS-Vf-SZc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="movieView" destination="jbh-cM-Lcf" id="T39-2i-p2T"/>
+                        <outlet property="pickerView" destination="AOJ-M0-0Vb" id="ZU0-HE-fE4"/>
+                        <outlet property="stackView" destination="EhM-0G-CLq" id="aRT-ef-2v7"/>
+                        <outlet property="urlTextField" destination="Sca-VA-MRY" id="nO3-Lh-Kqc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
